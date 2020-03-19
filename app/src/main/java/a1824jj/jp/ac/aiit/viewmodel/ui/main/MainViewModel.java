@@ -1,18 +1,21 @@
 package a1824jj.jp.ac.aiit.viewmodel.ui.main;
 
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 public class MainViewModel extends ViewModel {
 
     private  int clickCount = 0;
+    private MutableLiveData<Integer> countLiveData = new MutableLiveData<Integer>();
 
-    public int getInitialCount() {
-        return this.clickCount;
+
+    public MutableLiveData<Integer> getInitialCount() {
+        return countLiveData;
     }
 
-    public int getCurrentCount() {
+    public void getCurrentCount() {
         this.clickCount += 1;
-        return this.clickCount;
+        countLiveData.setValue(clickCount);
     }
 
 }
